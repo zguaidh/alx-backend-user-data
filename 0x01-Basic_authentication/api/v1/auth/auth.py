@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-""" Module for the class Auth"""
+"""
+Module for the class Auth
+"""
 
 from flask import request
 from typing import List, TypeVar
@@ -7,7 +9,7 @@ import re
 
 
 class Auth:
-    """ Auth class definition to manage API auth"""
+    """ Auth class definition"""
     def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
         """Define which routes don't need authentication"""
         if path is None or excluded_paths is None or not excluded_paths:
@@ -28,3 +30,7 @@ class Auth:
         if auth_header is None:
             return None
         return auth_header
+
+    def current_user(self, request=None) -> TypeVar('User'):
+        """ return None for now"""
+        return None
