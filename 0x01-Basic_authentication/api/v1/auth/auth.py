@@ -9,7 +9,8 @@ import re
 
 
 class Auth:
-    """ Auth class definition"""
+    """ Auth class definition
+    """
     def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
         """Define which routes don't need authentication"""
         if path is None or excluded_paths is None or not excluded_paths:
@@ -32,5 +33,5 @@ class Auth:
         return auth_header
 
     def current_user(self, request=None) -> TypeVar('User'):
-        """ return None for now"""
+        """ return None - request will be the Flask request object"""
         return None
