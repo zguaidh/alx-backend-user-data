@@ -35,8 +35,8 @@ def unauthorized():
     abort(401)
 
 
-@app_views.route('/unauthorized', methods=['GET'], strict_slashes=False)
-def unauthorized():
+@app_views.route('/forbidden', methods=['GET'], strict_slashes=False)
+def forbidden():
     """ GET /api/v1/forbidden
     Return:
     - raise a 403 error by using abort - Custom Error Pages
