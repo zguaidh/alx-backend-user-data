@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-The Main Module
+Main Module - End-to-end integration test
 """
 from db import DB
 from user import User
@@ -9,64 +9,64 @@ from sqlalchemy.orm.exc import NoResultFound
 
 
 def register_user(email: str, password: str) -> None:
-    """register_user method
+    """register_user
     """
     assert True
     return
 
 
 def log_in_wrong_password(email: str, password: str) -> None:
-    """log_in_wrong_password method
+    """log_in_wrong_password
     """
     assert True
     return
 
 
 def log_in(email: str, password: str) -> str:
-    """log_in method
+    """log_in
     """
     assert True
     return ("")
 
 
 def profile_unlogged() -> None:
-    """profile_unlogged method
+    """profile_unlogged
     """
     assert True
     return
 
 
 def profile_logged(session_id: str) -> None:
-    """profile_logged method
+    """profile_logged
     """
     assert True
     return
 
 
 def log_out(session_id: str) -> None:
-    """log_out method
+    """log_out
     """
     assert True
     return
 
 
 def reset_password_token(email: str) -> str:
-    """reset_password_token method
+    """reset_password_token
     """
     assert True
     return ("")
 
 
 def update_password(reset_token: str, new_password: str) -> None:
-    """update_password method
+    """update_password
     """
     assert True
     return
 
 
-EMAIL = "zguaidhabiba@gmail.com"
-PASSWD = "654321"
-NEW_PASSWD = "123456"
+EMAIL = "guillaume@holberton.io"
+PASSWD = "b4l0u"
+NEW_PASSWD = "t4rt1fl3tt3"
 
 
 if __name__ == "__main__":

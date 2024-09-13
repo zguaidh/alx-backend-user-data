@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-"""
-Database class
+"""DB module
 """
 
 from sqlalchemy import create_engine
@@ -16,8 +15,12 @@ DATA = ['id', 'email', 'hashed_password', 'session_id', 'reset_token']
 
 
 class DB:
+    """DB class
+    """
 
-    def __init__(self):
+    def __init__(self) -> None:
+        """Initialize a new DB instance
+        """
         self._engine = create_engine("sqlite:///a.db", echo=False)
         Base.metadata.drop_all(self._engine)
         Base.metadata.create_all(self._engine)
@@ -25,6 +28,8 @@ class DB:
 
     @property
     def _session(self):
+        """Memoized session object
+        """
         if self.__session is None:
             DBSession = sessionmaker(bind=self._engine)
             self.__session = DBSession()
@@ -36,7 +41,7 @@ class DB:
         Returns:
             User: user created
         """
-        if not email or not hashed_password:
+        if not hashed_password or not email:
             return
         user = User(email=email, hashed_password=hashed_password)
         session = self._session
@@ -45,7 +50,7 @@ class DB:
         return user
 
     def find_user_by(self, **kwargs) -> User:
-        """find user by some arguments
+        """find user by some kwargs arguments
 
         Returns:
             User: user found or raise error
@@ -62,9 +67,9 @@ class DB:
             user_id (int): id of user
         """
         user = self.find_user_by(id=user_id)
-        for key, val in kwargs.items():
-            if key not in DATA:
+        for k, v in kwargs.items():
+            if k not in DATA:
                 raise ValueError
-            setattr(user, key, val)
+            setattr(user, k, v)
         self._session.commit()
         return None
