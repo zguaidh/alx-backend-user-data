@@ -42,8 +42,12 @@ def login() -> str:
     Returns:
         str: messege
     """
-    email = request.form.get('email')
-    password = request.form.get('password')
+    try:
+        email = request.form.get('email')
+        password = request.form.get('password')
+    except KeyError:
+        abort(400)
+        
     valid_login = AUTH.valid_login(email, password)
     if not valid_login:
         abort(401)
