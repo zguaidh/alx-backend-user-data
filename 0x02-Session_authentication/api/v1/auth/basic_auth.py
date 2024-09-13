@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
-"""
-Module for the class BasicAuth
-"""
+""" basic_auth script for the class BasicAuth"""
 
 from flask import request
 from typing import List, TypeVar
@@ -12,8 +10,7 @@ from models.base import DATA
 
 
 class BasicAuth(Auth):
-    """BasicAuth class that inherits from Auth class
-    """
+    """ BasicAuth class that inherits from Auth class"""
     def extract_base64_authorization_header(
                 self, authorization_header: str) -> str:
         """ returns the Base64 part of the Authorization header

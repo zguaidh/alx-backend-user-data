@@ -37,8 +37,10 @@ class User(Base):
         """ Validate a password
         """
         if pwd is None or type(pwd) is not str:
+            print(1)
             return False
         if self.password is None:
+            print(2)
             return False
         pwd_e = pwd.encode()
         return hashlib.sha256(pwd_e).hexdigest().lower() == self.password
@@ -57,3 +59,4 @@ class User(Base):
             return "{}".format(self.last_name)
         else:
             return "{} {}".format(self.first_name, self.last_name)
+        
