@@ -59,7 +59,8 @@ class Auth:
             return False
         if checkpw(password.encode('utf-8'), user.hash_password):
             return True
-        return False
+        else:
+            return False
 
     def create_session(self, email: str) -> str:
         """create a new session for user
